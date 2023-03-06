@@ -1356,7 +1356,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                        KC_NO,        KC_NO,        KC_NO,        KC_NO,        KC_NO,        KC_NO,                                // Left Fourth Row       
                        KC_NO,        KC_NO,        KC_NO,        KC_NO,        KC_NO,        KC_NO,                                // Left Fifth Row        
                        KC_NO,        KC_NO,        LCA(KC_LEFT), LCA(KC_RGHT),                                                     // Left Bottom Row       
-                       KC_NO,        KC_NO,        KC_NO,        LCA(KC_DEL),  KC_NO,        KC_NO,                                // Left Thumb Cluster    
+                       KC_NO,        KC_NO,        KC_NO,        KC_NO,        LCA(KC_DEL),  KC_NO,                                // Left Thumb Cluster    
                        KC_NO,        KC_NO,        KC_NO,        KC_NO,        KC_NO,        KC_NO,        KC_NO, KC_NO, KC_NO,    // Right Top Rubber Row  
                        TD(DANCE_30), TD(DANCE_31), TD(DANCE_32), TD(DANCE_33), TD(DANCE_34), TD(DANCE_35),                         // Right Second Row      
                        KC_NO,        KC_NO, KC_NO, KC_NO,        KC_NO,        KC_NO,                                              // Right Third Row
