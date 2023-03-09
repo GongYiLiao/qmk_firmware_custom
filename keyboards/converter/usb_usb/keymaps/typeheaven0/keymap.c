@@ -148,5 +148,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_NO,   KC_NO, KC_NO, KC_NO, KC_NO,      KC_NO, KC_NO,      KC_NO, KC_NO, KC_NO, EMACS_SAVE, KC_NO, KC_NO,                             KC_NO,  KC_NO, KC_NO,
         KC_NO,   KC_NO, KC_NO, KC_NO, EMACS_KILL, KC_NO, EMACS_LSTB, KC_NO, KC_NO, KC_NO, KC_NO,      KC_NO,                      KC_NO,        KC_NO,  KC_NO, KC_NO, KC_NO,
         KC_NO,   KC_NO, KC_NO,                           KC_NO,                           KC_NO,      KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,         KC_NO
-    )    
+                               ),
+    
+    [4] = LAYOUT_fullsize_ansi(
+        KC_NO,   KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+        KC_TRNS, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,  KC_NO, KC_NO,
+        KC_NO,   KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,  KC_NO, KC_NO, KC_NO,
+        KC_NO,   KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,                             KC_NO,  KC_NO, KC_NO,
+        KC_NO,   KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,                      KC_NO,        KC_NO,  KC_NO, KC_NO, KC_NO,
+        KC_NO,   KC_NO, KC_NO,                      KC_NO,                      KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,         KC_NO
+                               )
+    
 };

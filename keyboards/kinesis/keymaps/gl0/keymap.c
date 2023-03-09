@@ -19,6 +19,12 @@ enum custom_keycodes {
   ST_MACRO_4,                 // SM4:  Emacs save file (C-x C-f)
   ST_MACRO_5,                 // SM5:  Emacs list buffers  (C-x C-b)
   ST_MACRO_6,                 // SM6:  Emacs write file (C-x C-w)
+  ST_MACRO_7,                 // SM7:  emacs org-mode show-all-tab
+  ST_MACRO_8,                 // SM8:  emacs org-mode next-heading
+  ST_MACRO_9,                 // SM9:  emacs org-mode previous heading
+  ST_MACRO_10,                // SM10: emacs org-mode next heading some level
+  ST_MACRO_11,                // SM11: emacs org-mode previous heading same level
+  ST_MACRO_12,                // SM12: emacs org-mode back to higher level heading 
 };
 
 
@@ -26,40 +32,69 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     case ST_MACRO_0:
       if (record->event.pressed) {
-        SEND_STRING(SS_LCTL(SS_TAP(X_Q)) SS_DELAY(100) SS_LCTL(SS_TAP(X_J)));
+        SEND_STRING(SS_LCTL(SS_TAP(X_Q)) SS_DELAY(20) SS_LCTL(SS_TAP(X_J)));
       }
       break;
     case ST_MACRO_1:
       if (record->event.pressed) {
-        SEND_STRING(SS_LCTL(SS_TAP(X_X)) SS_DELAY(100) SS_TAP(X_K)  SS_DELAY(100) SS_TAP(X_ENTER));
+        SEND_STRING(SS_LCTL(SS_TAP(X_X)) SS_DELAY(20) SS_TAP(X_K)  SS_DELAY(20) SS_TAP(X_ENTER));
       }
       break;
     case ST_MACRO_2:
       if (record->event.pressed) {
-        SEND_STRING(SS_LCTL(SS_TAP(X_X)) SS_DELAY(100) SS_LCTL(SS_TAP(X_F)));
+        SEND_STRING(SS_LCTL(SS_TAP(X_X)) SS_DELAY(20) SS_LCTL(SS_TAP(X_F)));
       }
       break;
     case ST_MACRO_3:
       if (record->event.pressed) {
-        SEND_STRING(SS_LCTL(SS_TAP(X_C)) SS_DELAY(100) SS_LCTL(SS_TAP(X_C)));
+        SEND_STRING(SS_LCTL(SS_TAP(X_C)) SS_DELAY(20) SS_LCTL(SS_TAP(X_C)));
       }
       break;
     case ST_MACRO_4:
       if (record->event.pressed) {
-        SEND_STRING(SS_LCTL(SS_TAP(X_X)) SS_DELAY(100) SS_LCTL(SS_TAP(X_S)));
+        SEND_STRING(SS_LCTL(SS_TAP(X_X)) SS_DELAY(20) SS_LCTL(SS_TAP(X_S)));
       }
       break;
     case ST_MACRO_5:
       if (record->event.pressed) {
-        SEND_STRING(SS_LCTL(SS_TAP(X_X)) SS_DELAY(100) SS_LCTL(SS_TAP(X_B)));
+        SEND_STRING(SS_LCTL(SS_TAP(X_X)) SS_DELAY(20) SS_LCTL(SS_TAP(X_B)));
       }
       break;
     case ST_MACRO_6:
       if (record->event.pressed) {
-        SEND_STRING(SS_LCTL(SS_TAP(X_X)) SS_DELAY(100) SS_LCTL(SS_TAP(X_W)));
+        SEND_STRING(SS_LCTL(SS_TAP(X_X)) SS_DELAY(20) SS_LCTL(SS_TAP(X_W)));
       }
       break;
-
+    case ST_MACRO_7:
+      if (record->event.pressed) {
+        SEND_STRING(SS_LCTL(SS_TAP(X_U)) SS_DELAY(20) SS_LCTL(SS_TAP(X_U)) SS_DELAY(20) SS_LCTL(SS_TAP(X_U) SS_DELAY(20) SS_TAP(X_TAB)));
+      }
+      break;
+    case ST_MACRO_8:
+      if (record->event.pressed) {
+        SEND_STRING(SS_LCTL(SS_TAP(X_C)) SS_DELAY(20) SS_LCTL(SS_TAP(X_P)));
+      }
+      break;
+    case ST_MACRO_9:
+      if (record->event.pressed) {
+        SEND_STRING(SS_LCTL(SS_TAP(X_C)) SS_DELAY(20) SS_LCTL(SS_TAP(X_N)));
+      }
+      break;
+    case ST_MACRO_10:
+      if (record->event.pressed) {
+        SEND_STRING(SS_LCTL(SS_TAP(X_C)) SS_DELAY(20) SS_LCTL(SS_TAP(X_B)));
+      }
+      break;
+    case ST_MACRO_11:
+      if (record->event.pressed) {
+        SEND_STRING(SS_LCTL(SS_TAP(X_C)) SS_DELAY(20) SS_LCTL(SS_TAP(X_F)));
+      }
+      break;
+    case ST_MACRO_12:
+      if (record->event.pressed) {
+        SEND_STRING(SS_LCTL(SS_TAP(X_C)) SS_DELAY(20) SS_LCTL(SS_TAP(X_U)));
+      }
+      break;
   }
   return true;
 }
@@ -1053,29 +1088,29 @@ tap_dance_action_t tap_dance_actions[] = {
 };
 
 // Combos
-enum combo_events {  
-  DOT_SPC,
-  SPC_DOT,
-  E_SPC,
-  SPC_E,
-  COMBO_LENGTH
-};
+/* enum combo_events {   */
+/*   DOT_SPC, */
+/*   SPC_DOT, */
+/*   E_SPC, */
+/*   SPC_E, */
+/*   COMBO_LENGTH */
+/* }; */
 
-uint16_t COMBO_LEN = COMBO_LENGTH;
+/* uint16_t COMBO_LEN = COMBO_LENGTH; */
 
-const uint16_t PROGMEM dot_spc_combo[] = { KC_DOT, KC_SPC, COMBO_END };
-const uint16_t PROGMEM spc_dot_combo[] = { KC_SPC, KC_DOT, COMBO_END };
-const uint16_t PROGMEM e_spc_combo[] = { KC_E, KC_SPC, COMBO_END };
-const uint16_t PROGMEM spc_e_combo[] = { KC_SPC, KC_E, COMBO_END };
+/* const uint16_t PROGMEM dot_spc_combo[] = { KC_DOT, KC_SPC, COMBO_END }; */
+/* const uint16_t PROGMEM spc_dot_combo[] = { KC_SPC, KC_DOT, COMBO_END }; */
+/* const uint16_t PROGMEM e_spc_combo[] = { KC_E, KC_SPC, COMBO_END }; */
+/* const uint16_t PROGMEM spc_e_combo[] = { KC_SPC, KC_E, COMBO_END }; */
 
 
 
-combo_t key_combos[] = {
-  [DOT_SPC] = COMBO(dot_spc_combo, KC_NO),
-  [SPC_DOT] = COMBO(spc_dot_combo, KC_NO),
-  [E_SPC] = COMBO(e_spc_combo, KC_NO),
-  [SPC_E] = COMBO(spc_e_combo, KC_NO)
-};
+/* combo_t key_combos[] = { */
+/*   [DOT_SPC] = COMBO(dot_spc_combo, KC_NO), */
+/*   [SPC_DOT] = COMBO(spc_dot_combo, KC_NO), */
+/*   [E_SPC] = COMBO(e_spc_combo, KC_NO), */
+/*   [SPC_E] = COMBO(spc_e_combo, KC_NO) */
+/* }; */
 
 
 
@@ -1417,14 +1452,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   /****************************************************************************************************
    *
-   * Empty Keymap Template for Kinesis Advantage 
+   * Keymap EMACS1, mostly for org-mode 
    *
    * ,-------------------------------------------------------------------------------------------------------------------.
    * |        |      |      |      |      |      |      |      |      |      |      |      |      |      |      |        |
    * |--------+------+------+------+------+------+---------------------------+------+------+------+------+------+--------|
-   * |        |      |      |      |      |      |                           |      |      |      |      |      |        |
+   * | SM7    |      | SM12 | SM8  |      |      |                           |      |      |      |      |      |        |
    * |--------+------+------+------+------+------|                           +------+------+------+------+------+--------|
-   * |        |      |      |      |      |      |                           |      |      |      |      |      |        |
+   * |        |      | SM10 | SM9  | SM11 |      |                           |      |      |      |      |      |        |
    * |--------+------+------+------+------+------|                           |------+------+------+------+------+--------|
    * |        |      |      |      |      |      |                           |      |      |      |      |      |        |
    * |--------+------+------+------+------+------|                           |------+------+------+------+------+--------|
@@ -1441,23 +1476,29 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    *                                 `--------------------'         `--------------------'
    *    Tap Dances: 
    *
-   *    Macros: 
+   *    Macros:
+   *    SM7:   C-u C-u C-u tab show all drawer
+   *    SM8:   C-c C-p previous heading
+   *    SM9:   C-c C-n next heading
+   *    SM10:  C-c C-b prvious heding same level
+   *    SM11:  C-C C-f next heading same level
+   *    SM12:  C-c C-u back to higher level heading 
    *
    */
-  [EMACS1] = LAYOUT(KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,        // Left Top Rubber Row
-                    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,                             // Left Second Row
-                    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,                             // Left Third Row
-                    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,                             // Left Fourth Row
-                    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,                             // Left Fifth Row
-                    KC_NO, KC_NO, KC_NO, KC_NO,                                           // Left Bottom Row
-                    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,                             // Left Thumb Cluster
-                    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,        // Right Top Rubber Row
-                    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,                             // Right Second Row
-                    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,                             // Right Third Row
-                    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,                             // Right Fourth Row
-                    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,                             // Right Fifth Row
-                    KC_NO, KC_NO, KC_NO, KC_NO,                                           // Right Bottom Row
-                    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO),                            // Right Thumb Cluster
+  [EMACS1] = LAYOUT(KC_NO,      KC_NO, KC_NO,       KC_NO,      KC_NO,       KC_NO, KC_NO, KC_NO, KC_NO,        // Left Top Rubber Row
+                    KC_NO,      KC_NO, KC_NO,       KC_NO,      KC_NO,       KC_NO,                             // Left Second Row
+                    ST_MACRO_7, KC_NO, ST_MACRO_12, ST_MACRO_8, KC_NO,       KC_NO,                             // Left Third Row
+                    KC_NO,      KC_NO, ST_MACRO_10, ST_MACRO_9, ST_MACRO_11, KC_NO,                             // Left Fourth Row
+                    KC_NO,      KC_NO, KC_NO,       KC_NO,      KC_NO,       KC_NO,                             // Left Fifth Row
+                    KC_NO,      KC_NO, KC_NO,       KC_NO,                                                      // Left Bottom Row
+                    KC_NO,      KC_NO, KC_NO,       KC_NO,      KC_NO,       KC_NO,                             // Left Thumb Cluster
+                    KC_NO,      KC_NO, KC_NO,       KC_NO,      KC_NO,       KC_NO, KC_NO, KC_NO, KC_NO,        // Right Top Rubber Row
+                    KC_NO,      KC_NO, KC_NO,       KC_NO,      KC_NO,       KC_NO,                             // Right Second Row
+                    KC_NO,      KC_NO, KC_NO,       KC_NO,      KC_NO,       KC_NO,                             // Right Third Row
+                    KC_NO,      KC_NO, KC_NO,       KC_NO,      KC_NO,       KC_NO,                             // Right Fourth Row
+                    KC_NO,      KC_NO, KC_NO,       KC_NO,      KC_NO,       KC_NO,                             // Right Fifth Row
+                    KC_NO,      KC_NO, KC_NO,       KC_NO,                                                      // Right Bottom Row
+                    KC_NO,      KC_NO, KC_NO,       KC_NO,      KC_NO,       KC_NO),                            // Right Thumb Cluster
  
 
   /****************************************************************************************************
